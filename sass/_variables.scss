@@ -1,0 +1,97 @@
+// colors
+$white: #ffffff;
+
+$main-color: #000000;
+
+
+// Screen resolutions
+$mini_phone:    320px;
+$small_phone:	576px;
+$phone: 		767px;
+$table: 		992px;
+$small_desktop:	1170px;
+
+// Mixins
+@mixin for($media) {
+    @if $media == ultra_small-min {
+        @media screen and (min-width: $mini_phone) { @content; }
+    }
+    @else if $media == ultra_small-max {
+        @media screen and (max-width: $mini_phone) { @content; }
+    }
+    @if $media == tiny-min {
+        @media screen and (min-width: $small_phone) { @content; }
+    }
+    @else if $media == tiny-max {
+        @media screen and (max-width: $small_phone) { @content; }
+    }
+    @if $media == phone-min {
+        @media screen and (min-width: $phone) { @content; }
+    }
+    @else if $media == phone-max {
+        @media screen and (max-width: $phone) { @content; }
+    }
+    @else if $media == phone-max-landscape {
+        @media all and (max-width: $phone) and (orientation : landscape){ @content; }
+    }
+    @else if $media == tablet-min {
+        @media screen and (min-width: $table) { @content; }
+    }
+    @else if $media == tablet-max {
+        @media screen and (max-width: $table) { @content; }
+    }
+    @else if $media == laptop-min {
+        @media screen and (min-width: $small_desktop) { @content; }
+    }
+    @else if $media == laptop-max {
+        @media screen and (max-width: $small_desktop) { @content; }
+    }
+}
+
+@mixin title {
+    color: $main-color;
+    font-family: "SuisseIntl-Bold-WebXL", sans-serif;
+    font-size: 80px;
+    letter-spacing: 2.77px;
+    line-height: 73px;
+    @include for(tablet-max){
+        font-size: 52px;
+        line-height: 50px;
+        //height: 100px;
+    }
+    @include for(phone-max){
+        line-height: 30px;
+    }
+}
+@mixin title-playfair {
+    color: $main-color;
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 80px;
+    font-weight: 700;
+    letter-spacing: 2.77px;
+}
+@mixin address {
+    opacity: 0.8;
+    color: $main-color;
+    font-size: 16px;
+    line-height: 30px;
+    font-family: "SuisseIntl-Light-WebM", sans-serif;
+    font-weight: 300;
+    text-transform: none;
+}
+@mixin map-link {
+    color: #2a2a2d;
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 58px;
+    letter-spacing: 1.56px;
+}
+@mixin city-title {
+    color: $main-color;
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 53px;
+    letter-spacing: 1.85px;
+}
